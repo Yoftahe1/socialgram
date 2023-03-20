@@ -1,0 +1,163 @@
+.profile {
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.error{
+  position: fixed;
+  z-index: 1;
+  padding: 10px 30px;
+  background-color: white;
+  color: rgb(199, 83, 83);
+  border: 1px solid rgb(199, 83, 83);
+  font-size: 17px;
+}
+.loading{
+  position: fixed;
+  z-index: 1;
+  padding: 10px 30px;
+  background-color: white;
+  color: rgb(25, 233, 36);
+  border: 1px solid rgb(25, 233, 36);
+  font-size: 17px;
+}
+.topBar{
+  width: 600Px;
+  position: fixed;
+  background-color: white;
+}
+.user {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+.profilePic {
+  width: 100px;
+  height: 100px;
+}
+.image {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.background {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-image: url("../assets/images.jfif");
+  background-size: contain;
+}
+.changeImg {
+  min-width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: absolute;
+  clip-path: inset(70% 0 0 0);
+  color: white;
+  background-color: rgb(0, 0, 0, 0.7);
+  z-index: 0;
+  border-radius: 50%;
+  font-size: 25px;
+}
+.usernameAndBio {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.input {
+  color: gray;
+  height: 40px;
+  font-size: 15px;
+  outline: 0;
+  border: 0;
+  border-bottom: 1px solid grey;
+}
+.button {
+  color: white;
+  background-color: #0081c9;
+  font-size: 17px;
+  padding: 10px 15px;
+  border: 0;
+  outline: 0;
+  height: 40px;
+}
+.PostsAndLiked {
+  width: 100%;
+  height: 40px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: bottom;
+}
+.active{
+  font-size: 17px;
+  padding: 0 10px;
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid gray;
+}
+.PostsAndLiked div {
+  font-size: 17px;
+  padding: 0 10px;
+  display: flex;
+  /* justify-content: space-evenly; */
+  align-items: center;
+  cursor: pointer;
+}
+.yourLikeAndPost{
+  width: 100%;
+  margin-top: 160px;
+}
+.inputAndButton{
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: flex-end;
+}
+@media (max-width: 800px) {
+  .profile,.topBar {
+    width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .profile,.topBar {
+    width: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile,.topBar {
+    width: 400px;
+  }
+}
+@media (max-width: 550px) {
+  .profile {
+    width: 100vw;
+    padding: 0 10px;
+    padding-bottom: 60px;
+  }
+  .topBar{
+    width: 100%;
+    padding: 0 10px;
+    top: 50px;
+  }
+  .inputAndButton{
+    flex-direction: column;
+  }
+  .input{
+    width: 100%;
+  }
+  .button{
+    width: 100%;
+  }
+  .yourLikeAndPost{
+    margin-top: 200px;
+  }
+}

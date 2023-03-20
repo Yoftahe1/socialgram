@@ -1,0 +1,45 @@
+.pageContainer {
+  display: flex;
+  justify-content: space-between;
+}
+.logo {
+  height: 50px;
+  width: 100vw;
+  padding: 0 10px;
+  font-size: 25px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  z-index: 1;
+  color:  #0081c9;
+  font-family: 'Pacifico', cursive;
+}
+.logo svg{
+  
+}
+.logout{
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: rgb(243, 152, 152);
+}
+.logout:hover{
+  background-color: rgba(243, 152, 152, 0.321);
+
+}
+@media (max-width: 550px) {
+  .pageContainer {
+    flex-direction: column;
+    padding-top: 60px;
+  }
+  .logo {
+    display: flex;
+  }
+}

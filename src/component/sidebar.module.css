@@ -1,0 +1,92 @@
+.sidebar,.sidebarPlaceholder {
+  height: 100vh;
+  width: 300px;
+  padding: 20px;
+  background-color: white;
+}
+.sidebar{
+  position: fixed;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.logo {
+  padding-left: 10px;
+  font-size: 25px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  color:  #0081c9;
+  font-family: 'Pacifico', cursive;
+}
+.links {
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.link,
+.logout {
+  height: 50px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  border-radius: 50px;
+  padding-left: 10px;
+  color: gray;
+  text-decoration: none;
+}
+.link:hover,
+.logout:hover {
+  background-color: rgba(128, 128, 128, 0.4);
+}
+.active {
+  height: 50px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  cursor: pointer;
+  border-radius: 50px;
+  padding: 5px;
+  text-decoration: none;
+  color: #0081c9;
+}
+.linkName {
+  font-size: 15px;
+}
+@media (max-width: 1050px) {
+  .linkName,
+  .logo {
+    display: none;
+  }
+  .sidebar{
+    width: auto;
+    padding: 10px;
+  }
+  .sidebarPlaceholder {
+    width: 70px;
+  }
+  .link,
+  .logout {
+    width: 50px;
+  }
+}
+@media (max-width: 550px) {
+  .sidebar,.sidebarPlaceholder {
+    height: auto;
+    width: 100vw;
+    position: fixed;
+    bottom: 0;
+    padding: 0;
+    z-index: 1;
+  }
+  .links {
+    padding: 0;
+    justify-content: space-between;
+    flex-direction: row;
+  }
+  .logout {
+    display: none;
+  }
+}

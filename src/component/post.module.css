@@ -1,0 +1,46 @@
+.post{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100%;
+}
+.imageAndInteractions{
+    margin-left: 60px;
+}
+.description{
+    padding-bottom: 10px ;
+    font-size: 16px;
+    font-weight: 500;
+    color: gray;
+    word-break: break-all;
+}
+.image{
+    width: 100%;
+    border-radius: 20px;
+}
+.interactions{
+    display: flex;
+    justify-content: space-between;
+}
+.button{
+    width: 30%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    cursor: pointer;
+    color: gray;
+    text-decoration: none;
+}
+.button:hover{
+    background-color: rgba(128, 128, 128, 0.4);
+}
+@media (max-width:500px) {
+    .typeName{
+        display: none;
+    }
+    .imageAndInteractions{
+        margin: 0;
+    }
+}

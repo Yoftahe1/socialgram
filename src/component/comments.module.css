@@ -1,0 +1,101 @@
+.comments {
+  width: 600px;
+  padding: 60px 0;
+}
+.topBar {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  position: fixed;
+  top: 0;
+}
+.back {
+  width: 50px;
+  height: 50px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.description {
+  color: gray;
+  padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 500;
+  /* font-weight: 200; */
+  margin-left: 60px;
+  word-break: break-all;
+}
+.messageBar {
+  width: 600px;
+  height: 50px;
+  position: fixed;
+  display: flex;
+  align-items: center;
+  bottom: 0;
+  font-size: 25px;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 2;
+}
+.input {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  outline: none;
+  border: 0;
+  font-size: 15px;
+  color: gray;
+  background-color: transparent;
+}
+.button {
+  width: 50px;
+  cursor: pointer;
+}
+.comment{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.svg{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 25px;
+  color: rgba(219, 75, 75, 0.541);
+}
+.svg:hover{
+  background-color: rgba(219, 75, 75, 0.267);
+}
+@media (max-width: 800px) {
+  .comments,.topBar,.messageBar {
+    width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .comments,.topBar,.messageBar {
+    width: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+  .comments,.topBar,.messageBar {
+    width: 400px;
+  }
+}
+@media (max-width: 550px) {
+  .comments {
+    width: 100vw;
+    padding-top: 0;
+    padding-bottom: 60px;
+  }
+  .topBar,.messageBar{
+    width: 100vw;
+  }
+}

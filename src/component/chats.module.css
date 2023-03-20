@@ -1,0 +1,33 @@
+.chats {
+  width: 600px;
+}
+.user{
+  padding: 5px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.432);
+}
+.user:hover{
+  background-color: rgba(128, 128, 128, 0.2);
+}
+@media (max-width: 800px) {
+  .chats {
+    width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .chats {
+    width: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+  .chats {
+    width: 400px;
+  }
+}
+@media (max-width: 550px) {
+  .chats {
+    width: 100vw;
+    padding: 0 10px;
+    padding-bottom: 60px;
+  }
+}

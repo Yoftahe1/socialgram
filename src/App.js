@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import PageContainer from "./page/pageContainer";
+import Posts from "./component/posts";
+import Search from "./component/search";
+import Create from "./component/create";
+import Chats from "./component/chats";
+import Chat from "./component/chat";
+import Comments from "./component/comments"
+import Sign from "./page/sign"
+import "./App.css";
+import { Route, Routes } from "react-router-dom";
+import EditProfile from "./component/editProfile";
+import Error from "./page/error";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Sign/>}/>
+      <Route path="/posts" element={<PageContainer><Posts/></PageContainer>}/>
+      <Route path="/posts/comments/:id" element={<PageContainer><Comments/></PageContainer>}/>
+      <Route path="/search" element={<PageContainer><Search/></PageContainer>}/>
+      <Route path="/create" element={<PageContainer><Create/></PageContainer>}/>
+      <Route path="/chats" element={<PageContainer><Chats/></PageContainer>}/>
+      <Route path="/chats/:type/:id" element={<PageContainer><Chat/></PageContainer>}/>
+      <Route path="/profile" element={<PageContainer><EditProfile/></PageContainer>}/>
+      <Route path="/error" element={<Error/>}/>
+
+    </Routes>
   );
 }
 

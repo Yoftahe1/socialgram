@@ -1,0 +1,132 @@
+.create {
+  width: 600px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  color: gray;
+}
+.create h3{
+  width: 100%;
+}
+.type {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 20px 10px;
+  border-radius: 20px;
+  border: 1px solid rgb(44, 44, 46);
+}
+.error{
+  position: fixed;
+  z-index: 1;
+  padding: 10px 30px;
+  background-color: white;
+  color: rgb(199, 83, 83);
+  border: 1px solid rgb(199, 83, 83);
+  font-size: 17px;
+}
+.loading{
+  position: fixed;
+  z-index: 1;
+  padding: 10px 30px;
+  background-color: white;
+  color: rgb(25, 233, 36);
+  border: 1px solid rgb(25, 233, 36);
+  font-size: 17px;
+}
+.description {
+  font-size: 25px;
+}
+.close{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  position: absolute; 
+  direction: rtl;
+  float: right;
+  font-size: 40px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.close:hover{
+  background-color: rgba(128, 128, 128, 0.623);
+
+}
+.image {
+  width: 100%;
+  border-radius: 20px;
+}
+.choice {
+  display: flex;
+  justify-content: space-between;
+}
+.choice div{
+  width: 45%;
+  text-align: center;
+  cursor: pointer;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+.choice div:hover{
+  background-color: rgba(128, 128, 128, 0.4);
+}
+.input {
+  height: 40px;
+  width: 100%;
+  /* padding-left: 20px; */
+  outline: none;
+  border: 0;
+  background-color: transparent;
+  border-bottom: 1px solid rgba(172, 172, 172, 0.5);
+  color: gray;
+  font-size: 17px;
+}
+
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+.button {
+  width: 100%;
+  height: 50px;
+  outline: none;
+  border: 0;
+  background-color: #0081C9;
+  color: white;
+  border-radius: 30px;
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  .create {
+    width: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .create {
+    width: 450px;
+  }
+}
+
+@media (max-width: 600px) {
+  .create {
+    width: 400px;
+  }
+}
+@media (max-width: 550px) {
+  .create {
+    width: 100vw;
+    padding: 0 10px;
+    padding-bottom: 60px;
+    
+  }
+
+}

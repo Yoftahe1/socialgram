@@ -1,0 +1,35 @@
+.rightSidebar,.rightSidebarPlaceholder{
+    width: 400px;
+    height: max-content;
+    padding: 0 10px;
+}
+.rightSidebar{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    position: fixed;
+    right: 0;
+}
+.topBar{
+    color: gray;
+    font-size: 20px;
+    font-weight: 500;
+    padding:10px 0;
+    text-align: center;
+}
+.user:hover{
+    background-color: rgba(128, 128, 128, 0.2);
+    cursor: pointer;
+}
+@media (max-width:1400px) {
+    .rightSidebar,.rightSidebarPlaceholder{
+        width: 0px;
+        visibility: hidden;
+    }
+    .topBar,.friends{
+        display: none;
+    }
+}
+@media (max-width: 550px) {
+    .rightSidebar,.rightSidebarPlaceholder {
+      display: none;
+    }
+  }
