@@ -5,7 +5,6 @@ import { HiOutlinePaperClip } from "react-icons/hi";
 import { RiSendPlane2Line } from "react-icons/ri";
 import Profile from "./profile";
 import Context from "../store/context";
-import { supabase } from "../supabaseClient";
 import styles from "./chat.module.css";
 import useGetMessages from "../logic/useGetMessages";
 const Chat = () => {

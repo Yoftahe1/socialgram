@@ -27,7 +27,9 @@
   justify-content: space-between;
   align-items: center;
 }
-
+.user:hover{
+  background-color: #0083c915;
+}
 .button {
   height: 40px;
   padding: 0 10px;

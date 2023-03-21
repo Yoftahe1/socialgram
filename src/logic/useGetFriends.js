@@ -58,7 +58,21 @@ const useGetFriends = () => {
       supabase.removeChannel(myChannel);
     };
   }, [ctx.user.id]);
-  return { friends };
+  async function addFriend(id) {
+    const { data, error } = await supabase
+      .from("friends")
+      .insert({
+        requester: ctx.user.id,
+        accepter: id,
+      })
+      .select();
+    if (data) {
+      console.log("added");
+    } else {
+      console.log(error);
+    }
+  }
+  return { friends ,addFriend};
 };
 
 export default useGetFriends;

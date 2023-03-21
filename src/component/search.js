@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
   const [users, setUsers] = useState([]);
   const ctx = useContext(Context);
-  const { friends } = useGetFriends();
+  const { friends ,addFriend} = useGetFriends();
   const navigate = useNavigate();
   async function search(event) {
     setUsers([]);
@@ -25,21 +25,6 @@ const Search = () => {
       }
     }
   }
-  async function addFriend(id) {
-    const { data, error } = await supabase
-      .from("friends")
-      .insert({
-        requester: ctx.user.id,
-        accepter: id,
-      })
-      .select();
-    if (data) {
-      console.log("added");
-    } else {
-      console.log(error);
-    }
-  }
-
   return (
     <div className={styles.search}>
       <div className={styles.topBar}>

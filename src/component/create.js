@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { FaCamera, FaImage } from "react-icons/fa";
 import { SlClose } from "react-icons/sl";
-import { supabase } from "../supabaseClient";
-import Context from "../store/context";
 import styles from "./create.module.css";
+import usePost from "../logic/usePost";
 const Create = () => {
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState(null);
@@ -15,12 +14,7 @@ const Create = () => {
   });
   const descriptionRef = useRef();
   const fileRef = useRef();
-  const ctx = useContext(Context);
-  const postingRef = useRef();
-
-  useEffect(() => {
-    postingRef.current = posting;
-  }, [posting]);
+  const { post } = usePost(posting);
   function addToPost(event) {
     setImage(event.target.files[0]);
     const reader = new FileReader();
@@ -31,72 +25,7 @@ const Create = () => {
       setPreview(readerEvent.target?.result);
     };
   }
-  let url;
-  async function post() {
-    if (descriptionRef.current.value) {
-      setIsLoading(true);
-      if (image) {
-        const date = new Date();
-        const { data, error } = await supabase.storage
-          .from("posts")
-          .upload(`${ctx.user.id}/${date.toISOString()}`, image);
-        if (data) {
-          getUrl(data.path);
-          const { post, error } = await supabase
-            .from("posts")
-            .insert({
-              user_id: ctx.user.id,
-              description: descriptionRef.current.value,
-              image: url,
-            })
-            .select();
-          if (post) {
-            console.log("posted");
-          } else {
-            console.log(error);
-          }
-        } else {
-          console.log(error);
-          setPosting({ message: "Something went wrong", isError: true });
-          setTimeout(() => {
-            setPosting({ message: "", isError: false, isSuccess: false });
-          }, 2000);
-        }
-      } else {
-        const { data, error } = await supabase
-          .from("posts")
-          .insert({
-            user_id: ctx.user.id,
-            description: descriptionRef.current.value,
-          })
-          .select();
-        if (data) {
-          setPosting({ message: "posted successfully", isSuccess: true });
-          setTimeout(() => {
-            setPosting({ message: "", isError: false, isSuccess: false });
-          }, 2000);
-        } else {
-          setPosting({ message: error.message, isError: true });
-          setTimeout(() => {
-            setPosting({ message: "", isError: false, isSuccess: false });
-          }, 2000);
-          console.log(error);
-        }
-      }
 
-      setIsLoading(false);
-      setPreview(null);
-      descriptionRef.current.value = null;
-    }
-  }
-  async function getUrl(path) {
-    const { data, error } = supabase.storage.from("posts").getPublicUrl(path);
-    if (data) {
-      url = data.publicUrl;
-    } else {
-      console.log(error);
-    }
-  }
   return (
     <div className={styles.create}>
       {posting.isError && <div className={styles.error}>{posting.message}</div>}
@@ -149,7 +78,12 @@ const Create = () => {
           className={styles.input}
           placeholder="Add description."
         />
-        <button className={styles.button} onClick={post}>
+        <button
+          className={styles.button}
+          onClick={() =>
+            post(descriptionRef, setIsLoading, image, setPosting, setPreview)
+          }
+        >
           Create
         </button>
       </div>

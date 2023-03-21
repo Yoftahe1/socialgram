@@ -8,53 +8,10 @@ import styles from "./post.module.css";
 import { NavLink } from "react-router-dom";
 import Context from "../store/context";
 import { supabase } from "../supabaseClient";
+import useLike from "../logic/useLike";
 const Post = (props) => {
-
+  const { likes, like } = useLike(props.elements.id);
   const ctx = useContext(Context);
-  const [likes, setLikes] = useState([]);
-  const getLikes = useCallback(async () => {
-    const { data, error } = await supabase
-      .from("likes")
-      .select(`user_id`)
-      .eq("post_id", props.elements.id);
-    if (data) {
-      const temp = [];
-      data.forEach((element) => {
-        temp.push(element.user_id);
-      });
-      setLikes(temp);
-    } else {
-      console.log(error);
-    }
-  },[props.elements.id]);
-  useEffect(() => {
-    getLikes();
-  }, [getLikes]);
-
-  async function like(id) {
-    const { data, error } = await supabase
-      .from("likes")
-      .insert({ post_id: id, user_id: ctx.user.id })
-      .select();
-    if (data) {
-      console.log("liked");
-      getLikes();
-    } else {
-      if (
-        error.message ===
-        'duplicate key value violates unique constraint "like_constraint"'
-      ) {
-        const { error } = await supabase
-          .from("likes")
-          .delete()
-          .match({ post_id: id, user_id: ctx.user.id });
-        getLikes();
-        if(error){
-          console.log(error)
-        }
-      }
-    }
-  }
   return (
     <div className={styles.post}>
       <Profile
@@ -78,7 +35,10 @@ const Post = (props) => {
             ) : (
               <MdOutlineFavoriteBorder />
             )}
-            <p className={styles.type}>{likes.length}<span className={styles.typeName}>Like</span> </p>
+            <p className={styles.type}>
+              {likes.length}
+              <span className={styles.typeName}>Like</span>{" "}
+            </p>
           </div>
           <NavLink
             to={`/posts/comments/${props.elements.id}`}
@@ -92,7 +52,9 @@ const Post = (props) => {
           </NavLink>
           <div className={styles.button}>
             <FiShare2 />
-            <p className={styles.type}><span className={styles.typeName}>Share</span></p>
+            <p className={styles.type}>
+              <span className={styles.typeName}>Share</span>
+            </p>
           </div>
         </div>
       </div>
