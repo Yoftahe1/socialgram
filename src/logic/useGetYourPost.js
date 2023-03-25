@@ -12,7 +12,7 @@ const useGetYourPost = () => {
         .select(
           `
           description,created_at,image,id,comment_count,
-          users (username,image)
+          users (username,image,id)
         `
         )
         .eq("user_id", ctx.user.id)
@@ -25,7 +25,7 @@ const useGetYourPost = () => {
     }
     getPosts();
   }, [ctx.user.id]);
-  return posts;
+  return {posts,setPosts};
 };
 
 export default useGetYourPost;

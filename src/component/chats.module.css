@@ -3,11 +3,15 @@
 }
 .user{
   padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-bottom: 2px solid rgba(128, 128, 128, 0.432);
 }
 .user:hover{
   background-color: rgba(128, 128, 128, 0.2);
 }
+
 @media (max-width: 800px) {
   .chats {
     width: 500px;

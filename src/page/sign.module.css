@@ -1,6 +1,6 @@
 .sign {
-  height: 100vh;
-  background-color: #ECF2FF;
+  min-height: 100vh;
+  background-color: #ecf2ff;
 }
 .form {
   width: 450px;
@@ -36,10 +36,10 @@
   font-size: 16px;
   padding: 0 15px;
 }
-.forgot{
-    text-align: end;
+.forgot {
+  text-align: end;
 }
-.error{
+.error {
   color: rgb(202, 90, 90);
   text-align: center;
 }
@@ -48,25 +48,24 @@
   height: 50px;
   margin-top: 10px;
   color: white;
-  background-color: #0081C9;
+  background-color: #0081c9;
   outline: none;
   border: none;
   border-radius: 20px;
   cursor: pointer;
-
 }
-.type{
-    color:  #0046c9;
-    cursor: pointer;
+.type {
+  color: #0046c9;
+  cursor: pointer;
 }
-.loadingContainer{
+.loadingContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: rgba(41, 152, 255, 0.24)
+  background-color: rgba(41, 152, 255, 0.24);
 }
-.loading{
+.loading {
   padding: 0;
   margin: 0;
   width: 50px;
@@ -76,20 +75,22 @@
   background: rgb(18, 141, 255);
 }
 @keyframes animate {
-  0%{
-      width: 50px;
-      transform: translateX(-50px);
+  0% {
+    width: 50px;
+    transform: translateX(-50px);
   }
-  50%{
-      width: 500px;
+  50% {
+    width: 500px;
   }
-  100%{
-      width: 50px;
-      transform: translateX(500px);
+  100% {
+    width: 50px;
+    transform: translateX(500px);
   }
 }
-@media (max-width:450px) {
-  .form{
+@media (max-width: 450px) {
+  .form {
     width: 100%;
+    height: 100%;
   }
 }
+

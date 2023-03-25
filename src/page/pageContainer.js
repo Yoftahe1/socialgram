@@ -3,12 +3,22 @@ import Sidebar from "../component/sidebar";
 import RightSidebar from "../component/rightSidebar";
 import { BiLogOut } from "react-icons/bi";
 import styles from "./pageContainer.module.css";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import { supabase } from "../supabaseClient";
 import Context from "../store/context";
 const PageContainer = (props) => {
   const location = useLocation();
   const ctx = useContext(Context);
+
+
+
+  useEffect(() => {
+    let user = localStorage.getItem("user");
+    if (ctx.user.id === undefined && user !== null) {
+      ctx.setUser(JSON.parse(user));
+    }
+  }, [ctx]);
+
   useEffect(() => {
     const channel = supabase.channel("online-users", {
       config: {
@@ -44,9 +54,9 @@ const PageContainer = (props) => {
         !location.pathname.startsWith("/posts/comments") && (
           <div className={styles.logo}>
             <p>Socialgram</p>
-            <div className={styles.logout}>
+            <NavLink to='/' className={styles.logout} onClick={()=>{localStorage.removeItem('user');ctx.setUser({})}}>
               <BiLogOut />
-            </div>
+            </NavLink>
           </div>
         )}
       {props.children}

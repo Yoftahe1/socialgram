@@ -1,0 +1,28 @@
+.error{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: gray;
+}
+
+.errorButton {
+  color: #fff !important;
+  padding: 10px 20px;
+  background: #39ac31;
+  margin: 20px 0;
+  display: inline-block;
+  cursor: pointer;
+}
+.error404{
+    font-size: 80px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+@media (max-width:800px) {
+    .errorImage{
+        width: 100%;
+    }
+}

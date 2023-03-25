@@ -40,7 +40,7 @@ const useGetFriends = () => {
 
         setFriends(temp);
       } else {
-        console.log(error);
+        // console.log(error);
       }
     }
     getFriends();

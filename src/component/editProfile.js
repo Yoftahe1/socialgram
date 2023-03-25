@@ -10,8 +10,8 @@ import useGetYourLikes from "../logic/useGetYourLikes";
 import useUpdateProfile from "../logic/useUpdateProfile";
 const EditProfile = () => {
   const [isPost, setIsPost] = useState(true);
-  const posts = useGetYourPost();
-  const liked = useGetYourLikes();
+  const {posts,setPosts} = useGetYourPost();
+  const {liked} = useGetYourLikes();
   const ctx = useContext(Context);
   const fileRef = useRef();
   const usernameRef = useRef();
@@ -105,7 +105,7 @@ const EditProfile = () => {
       <div className={styles.yourLikeAndPost}>
         {isPost
           ? posts.map((element, index) => {
-              return <Post key={index} elements={element} />;
+              return <Post key={index} elements={element} index={index} setPosts={setPosts}/>;
             })
           : liked.map((element, index) => {
               let elements = {
@@ -119,7 +119,7 @@ const EditProfile = () => {
                   image: element.user_image,
                 },
               };
-              return <Post key={index} elements={elements} />;
+              return <Post key={index} elements={elements}/>;
             })}
       </div>
     </div>

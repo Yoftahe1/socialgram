@@ -26,7 +26,15 @@ const useGetPosts = () => {
       .channel("any")
       .on(
         "postgres_changes",
-        { event: "*", schema: "public", table: "posts" },
+        { event: "DELETE", schema: "public", table: "posts" },
+        () => {
+          getPosts();
+          setThereIsNew(false);
+        }
+      )
+      .on(
+        "postgres_changes",
+        { event: "INSERT", schema: "public", table: "posts" },
         handelPost
       )
       .on(
@@ -63,7 +71,7 @@ const useGetPosts = () => {
       setThereIsNew(false);
     }
   };
-  return { posts, thereIsNew};
+  return { posts, thereIsNew };
 };
 
 export default useGetPosts;

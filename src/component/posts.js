@@ -19,7 +19,7 @@ const Posts = () => {
 
       {posts.map((element, index) => { 
 
-        return <Post key={index} elements={element} />;
+        return <Post key={index} elements={element}/>;
       })}
     </div>
   );

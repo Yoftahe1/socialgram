@@ -7,6 +7,17 @@
 .sidebar{
   position: fixed;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  overflow-y: scroll;
+}
+.sidebar {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.sidebar::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+.logoSvg{
+  display: none;
 }
 .logo {
   padding-left: 10px;
@@ -70,6 +81,9 @@
   .link,
   .logout {
     width: 50px;
+  }
+  .logoSvg{
+    display: block;
   }
 }
 @media (max-width: 550px) {
